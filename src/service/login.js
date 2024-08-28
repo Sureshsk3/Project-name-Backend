@@ -3,7 +3,8 @@ import auth from "../utils/auth.js";
 const login = async (req, res) => {
   try {
     
-    const user = await userModel.findOne({ email: req.body.email });    
+    const user = await userModel.findOne({ email: req.body.email }); 
+       
     if (user) {
       if (await auth.hashCompare(req.body.password, user.password)) {
         const payload = {
