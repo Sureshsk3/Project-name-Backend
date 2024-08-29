@@ -9,7 +9,7 @@ const login = async (req, res) => {
       if (await auth.hashCompare(req.body.password, user.password)) {
         const payload = {
           _id: user._id,
-          firstName: user.firstName,
+          fullName: user.fullName,
           email: user.email,
           role: user.role,
           phone: user.phone,

@@ -39,8 +39,10 @@ const userOne = async (req, res) => {
   }
 };
 const createUser = async (req, res) => {
+  
   try {
     const user = await userModel.findOne({ email: req.body.email });
+    
     if (!user) {
       (req.body.password = await auth.harshedItem(req.body.password)),
       await userModel.create(req.body);
@@ -52,7 +54,7 @@ const createUser = async (req, res) => {
         message: "User is Already Exisits",
       });
     }
-  } catch (error) {
+  } catch (error) {    
     res.sendStatus(500);
   }
 };
@@ -70,6 +72,7 @@ const deleteUser = async (req, res) => {
       message: "User Deleted Successful",
     });
   } catch (error) {
+
     res.sendStatus(500);
   }
 };
