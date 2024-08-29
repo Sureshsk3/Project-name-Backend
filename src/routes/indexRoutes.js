@@ -3,7 +3,17 @@ import userRouter from "./UserRouter.js";
 import loginRouter from "./loginRouter.js";
 
 const router = Router();
-
+router.use("/",(req,res)=>{
+    try {
+        res.status(200).send({
+            message:"Welcome to backend Express"
+        })
+    } catch (error) {
+        res.status(400).send({
+            message:"Bad Request"
+        })
+    }
+})
 router.use("/login", loginRouter);
 router.use("/user", userRouter);
 // router.use("/bookings");
