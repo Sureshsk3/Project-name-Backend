@@ -3,7 +3,7 @@ import userRouter from "./UserRouter.js";
 import loginRouter from "./loginRouter.js";
 
 const router = Router();
-router.use("/",(req,res)=>{
+router.get("/",(req,res)=>{
     try {
         res.status(200).send({
             message:"Welcome to backend Express"
