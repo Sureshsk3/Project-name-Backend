@@ -6,7 +6,7 @@ const serviceSchema = new mongoose.Schema({
     required: [true, "Service Name is Required"],
   },
   amount: {
-    type: number,
+    type: Number,
     required: [true, "Amount is Required"],
   },
   description: {
@@ -15,7 +15,6 @@ const serviceSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    required: [true, "Name is Required"],
     enum: [],
   },
   createdAt: {
@@ -26,4 +25,9 @@ const serviceSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+},
+{
+versionKey:false
 });
+
+export default new mongoose.model("services", serviceSchema);

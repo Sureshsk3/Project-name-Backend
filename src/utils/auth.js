@@ -27,16 +27,16 @@ const createToken = async (payload) => {
     throw error;
   }
 };
-const decodetoken = async(token)=>{
+const decodetoken = async (token) => {
   try {
-    return await jwt.decode(token)
+    return await jwt.decode(token);
   } catch (error) {
     throw error;
   }
-}
+};
 export default {
   harshedItem,
   hashCompare,
   createToken,
-  decodetoken
+  decodetoken,
 };

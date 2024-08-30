@@ -10,13 +10,13 @@ const bookingSchema = new mongoose.Schema(
       type: String,
       required: [true, "UserId is Required"],
     },
-    StartTime: {
+    Date: {
       type: Date,
-      required: [true, "StartTime is Required"],
+      required: [true, "Date is Required"],
     },
-    endTime: {
-      type: Date,
-      required: [true, "EndTime is Required"],
+    Time: {
+      type: String,
+      required: [true, "Time is Required"],
     },
     status: {
       type: Boolean,

@@ -16,7 +16,7 @@ const login = async (req, res) => {
         };
         const token = await auth.createToken(payload);
         
-        res.status(200).send({
+        res.status(201).send({
           message: "Login Successful",
           token,
           role: user.role,
