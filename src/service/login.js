@@ -3,6 +3,7 @@ import auth from "../utils/auth.js";
 const login = async (req, res) => {
   try {
     
+    console.log(req.body);
     const user = await userModel.findOne({ email: req.body.email }); 
        
     if (user) {
@@ -28,7 +29,7 @@ const login = async (req, res) => {
       }
     } else {
       res.status(400).send({
-        message: "Email Id Incorrect",
+        message: "Email Id Not Available",
       });
     }
   } catch (error) {

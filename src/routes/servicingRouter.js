@@ -5,7 +5,7 @@ import verifyAdmin from "../middleware/verifyAdmin.js";
 
 const servicingRouter = Router();
 
-servicingRouter.get("/", verify, verifyAdmin, services.getAllServices);
+servicingRouter.get("/", verify, services.getAllServices);
 servicingRouter.get("/:id", verify, verifyAdmin, services.getOneService);
 servicingRouter.post("/", verify, verifyAdmin, services.createService);
 servicingRouter.put("/:id", verify, verifyAdmin, services.updateService);
