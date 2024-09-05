@@ -2,10 +2,10 @@ import serviceModel from "../model/serviceModel.js";
 
 const getAllServices = async (req, res) => {
   try {
-    const services = await serviceModel.find();
+    const services = await serviceModel.find({},{_id:0,status:0});
     res.status(200).send({
       message: "Services Fetched Successfull",
-      services,
+      data:services,
     });
   } catch (error) {
     res.status(500).send({
