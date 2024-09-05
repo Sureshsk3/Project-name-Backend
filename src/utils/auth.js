@@ -29,7 +29,7 @@ const createToken = async (payload) => {
 };
 const decodetoken = async (token) => {
   try {
-    return await jwt.decode(token);
+    return jwt.decode(token);
   } catch (error) {
     throw error;
   }

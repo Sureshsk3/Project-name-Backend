@@ -2,8 +2,6 @@ import userModel from "../model/userModel.js";
 import auth from "../utils/auth.js";
 const login = async (req, res) => {
   try {
-    
-    console.log(req.body);
     const user = await userModel.findOne({ email: req.body.email }); 
        
     if (user) {

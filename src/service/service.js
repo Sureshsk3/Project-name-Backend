@@ -4,7 +4,7 @@ const getAllServices = async (req, res) => {
   try {
     const services = await serviceModel.find();
     res.status(200).send({
-      message: "Booking Data Fetched Successfull",
+      message: "Services Fetched Successfull",
       services,
     });
   } catch (error) {
@@ -42,6 +42,7 @@ const createService = async (req, res) => {
       const service = await serviceModel.create(req.body);
       res.status(201).send({
         message: "Booking Created Successfull",
+        service
       });
     }else{
       res.status(400).send({
