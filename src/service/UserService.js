@@ -5,7 +5,7 @@ const getAllUser = async (req, res) => {
   try {
     const allUser = await userModel.find(
       {},
-      { password: 0, confirmPassword: 0 }
+      { password: 0 }
     );
     res.status(200).send({
       message: "User Data Fetched Successfull",
@@ -22,7 +22,7 @@ const userOne = async (req, res) => {
     const { id } = req.params;
     const user = await userModel.findOne(
       { _id: id },
-      { password: 0, confirmPassword: 0, status: 0, createdAt: 0 }
+      { password: 0, status: 0, createdAt: 0 }
     );
     if (user) {
       res.status(200).send({
@@ -35,8 +35,6 @@ const userOne = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
-
     res.status(500).send({
       message: "Internal Server Error",
     });
@@ -79,8 +77,6 @@ const updateUser = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
-
     res.status(500).send({
       message: "Internal Server Error",
     });

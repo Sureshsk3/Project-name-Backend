@@ -3,6 +3,7 @@ import userRouter from "./UserRouter.js";
 import loginRouter from "./loginRouter.js";
 import bookingRouter from "./bookingRouter.js";
 import servicingRouter from "./servicingRouter.js";
+import forgotRouter from "./forgotRouter.js"
 const router = Router();
 router.get("/", (req, res) => {
   try {
@@ -19,5 +20,6 @@ router.use("/login", loginRouter);
 router.use("/user", userRouter);
 router.use("/booking", bookingRouter);
 router.use("/service", servicingRouter);
+router.use("/forgot",forgotRouter)
 
 export default router;

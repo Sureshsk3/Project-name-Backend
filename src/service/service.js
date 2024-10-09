@@ -1,11 +1,10 @@
 import serviceModel from "../model/serviceModel.js";
-
 const getAllServices = async (req, res) => {
   try {
-    const services = await serviceModel.find({},{_id:0,status:0});
+    const services = await serviceModel.find({}, { status: 0 });
     res.status(200).send({
       message: "Services Fetched Successfull",
-      data:services,
+      data: services,
     });
   } catch (error) {
     res.status(500).send({
@@ -17,12 +16,12 @@ const getOneService = async (req, res) => {
   try {
     const { id } = req.params;
     const service = await serviceModel.findOne({ _id: id });
-    if(service){
+    if (service) {
       res.status(200).send({
         message: "Booking Data Fetched Successfull",
         service,
       });
-    }else{
+    } else {
       res.status(400).send({
         message: "Service Not Available",
       });
@@ -37,20 +36,19 @@ const createService = async (req, res) => {
   try {
     const availService = await serviceModel.findOne({
       serviceName: req.body.serviceName,
-    });
+    });    
     if (!availService) {
       const service = await serviceModel.create(req.body);
       res.status(201).send({
         message: "Booking Created Successfull",
-        service
+        data: service,
       });
-    }else{
+    } else {
       res.status(400).send({
         message: "Service is Already Exisits",
       });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "Internal Server Error",
     });

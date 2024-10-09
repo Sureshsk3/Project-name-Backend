@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema(
         message: (props) => `${props.value} is not a valid Email`,
       },
     },
+    password: {
+      type: String,
+      required: [true, "Password is Required"],
+    },
     phone: {
       type: String,
       required: [true, "Phone Number is Required"],
@@ -23,14 +27,19 @@ const userSchema = new mongoose.Schema(
         message: (props) => `${props.value} is not a valid PhoneNumber`,
       },
     },
-    password: {
-      type: String,
-      required: [true, "Password is Required"],
-    },
     role: {
       type: String,
       enum: ["User", "Admin"],
       default: "User",
+    },
+    profilePicture: {
+      type: String,
+    },
+    resetPasswordToken: {
+      type: String,
+    },
+    resetPasswordExpiryTime: {
+      type: Date,
     },
     status: {
       type: Boolean,

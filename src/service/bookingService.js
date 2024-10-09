@@ -5,7 +5,7 @@ const getAllBooking = async (req, res) => {
     const booking = await bookingModel.find();
     res.status(200).send({
       message: "Booking Data Fetched Successfull",
-      booking,
+      data: booking,
     });
   } catch (error) {
     res.status(500).send({
@@ -16,10 +16,10 @@ const getAllBooking = async (req, res) => {
 const getOneBooking = async (req, res) => {
   try {
     const { id } = req.params;
-    const booking = await bookingModel.find({ userId:id });
+    const booking = await bookingModel.find({ userId: id });
     res.status(200).send({
       message: "Booking Data Fetched Successfull",
-      booking,
+      data: booking,
     });
   } catch (error) {
     res.status(500).send({
@@ -29,13 +29,15 @@ const getOneBooking = async (req, res) => {
 };
 const createBooking = async (req, res) => {
   try {
-    const booking = await bookingModel.create(req.body);
-    res.status(201).send({
-      message: "Booking Created Successfull",
-    });
+       
+     const createBooking =  await bookingModel.create(req.body);
+      res.status(201).send({
+        message: "Booking Created Successfull",
+      });
+  
   } catch (error) {
     console.log(error);
-    
+
     res.status(500).send({
       message: "Internal Server Error",
     });
@@ -51,12 +53,11 @@ const updateBooking = async (req, res) => {
       booking.userId = req.body.userId;
       booking.Date = req.body.Date;
       booking.Time = req.body.Time;
-      await bookingModel.updateOne(req.body)
+      await bookingModel.updateOne(req.body);
       res.status(200).send({
         message: "Booking Update Successfull",
       });
-    }else{
-      
+    } else {
     }
   } catch (error) {
     res.status(500).send({

@@ -7,7 +7,7 @@ const bookingRouter = Router();
 
 bookingRouter.get("/", verify, verifyAdmin, bookingService.getAllBooking);
 bookingRouter.get("/:id", verify, bookingService.getOneBooking);
-bookingRouter.post("/", verify, bookingService.createBooking);
+bookingRouter.post("/",verify, bookingService.createBooking);
 bookingRouter.put("/:id", verify, bookingService.updateBooking);
 bookingRouter.delete("/:id", verify, bookingService.deleteBooking);
 

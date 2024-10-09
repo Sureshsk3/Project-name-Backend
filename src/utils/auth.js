@@ -19,9 +19,10 @@ const hashCompare = async (password, harshPassword) => {
   }
 };
 const createToken = async (payload) => {
+  
   try {
-    return await jwt.sign(payload, process.env.SECRET_KEY, {
-      expiresIn: "24h",
+    return jwt.sign(payload, process.env.SECRET_KEY, {
+      expiresIn: "1d",
     });
   } catch (error) {
     throw error;

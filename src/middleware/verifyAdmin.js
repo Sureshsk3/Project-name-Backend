@@ -6,17 +6,10 @@ const verifyAdmin = async (req, res, next) => {
     if (token) {
       const payload = await auth.decodetoken(token);
       
-      const user = await userModel.findOne({_id:payload._id});
-      console.log(user);
-      console.log(payload);
-      
-      
-      
-      
+      const user = await userModel.findOne({_id:payload._id});      
       
       if (user && payload.role === "Admin" && user.role === payload.role) {
         next();
-        console.log("success");
         
       } else {
         res.status(401).send({

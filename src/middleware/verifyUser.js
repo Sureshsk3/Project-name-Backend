@@ -2,14 +2,10 @@ import auth from "../utils/auth.js";
 
 const verify = async (req, res, next) => {
   try {
-    const token = req.headers.authorization?.split(" ")[1];
-    console.log(token);
-    
+    const token = req.headers.authorization?.split(" ")[1];    
     if (token) {
       let payload = await auth.decodetoken(token);
-      if (payload.exp > Math.floor(Date.now() / 1000)) {
-        console.log(payload);
-        
+      if (payload.exp > Math.floor(Date.now() / 1000)) {        
         next();
       } else {
         res.status(401).send({

@@ -19,6 +19,8 @@ const login = async (req, res) => {
           message: "Login Successful",
           token,
           role: user.role,
+          name:user.fullName,
+          id:user._id
         });
       } else {
         res.status(400).send({
